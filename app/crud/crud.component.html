@@ -1,0 +1,280 @@
+<div class="AddEmployeeTitleContainer">
+  <div class="addEmployeeTitleContainer">
+    <div>Add Employee</div>
+  </div>
+  <div class="addEmployeeBtnContainer">
+    <div class="addNewEmployeeBtn" (click)="addNewEmployeeBtn()">+</div>
+  </div>
+</div>
+
+<div *ngIf="newEmployeeClicked">
+  <div class="formWrapper">
+    <form>
+      <div class="form-group name">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="name"
+          name="name"
+          [(ngModel)]="model.name"
+          placeholder="Name"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">First Name:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="firstname"
+          name="firstname"
+          [(ngModel)]="model.firstname"
+          placeholder="First Name"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Last Name:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="lastname"
+          name="lastname"
+          [(ngModel)]="model.lastname"
+          placeholder="LastName"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Email:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="email"
+          name="email"
+          [(ngModel)]="model.email"
+          placeholder="Email"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Birth Date:</label>
+        <input
+          type="Date"
+          class="form-control input"
+          id="birthdate"
+          name="birthdate"
+          [(ngModel)]="model.birthdate"
+          placeholder="Birth Date"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Basic Salary:</label>
+        <input
+          type="number"
+          class="form-control input"
+          id="basicsalary"
+          name="basicsalary"
+          [(ngModel)]="model.basicsalary"
+          placeholder="Basic Salary"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Status:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="status"
+          name="status"
+          [(ngModel)]="model.status"
+          placeholder="Status"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Group:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="group"
+          name="group"
+          [(ngModel)]="model.group"
+          placeholder="Group"
+        />
+      </div>
+
+      <div class="form-group name">
+        <label for="name">Description:</label>
+        <input
+          type="text"
+          class="form-control input"
+          id="description"
+          name="description"
+          [(ngModel)]="model.description"
+          placeholder="Description"
+        />
+      </div>
+
+      <div class="submitBtnContainer">
+        <button type="submit" class="saveBtn" (click)="addEmployee()">
+          SAVE
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="tableWrapper">
+  <div class="containerTitle">
+    <div class="oneTitle">Name</div>
+    <div class="twoTitle">Firstname</div>
+    <div class="threeTitle">lastname</div>
+    <div class="fourTitle">Email</div>
+    <div class="fiveTitle">Birth Date</div>
+    <div class="sixTitle">Basic Salary</div>
+    <div class="sevenTitle">Status</div>
+    <div class="eightTitle">Group</div>
+    <div class="nineTitle">Description</div>
+    <div class="tenTitle">Actions</div>
+    <!-- <div class="four"></div> -->
+  </div>
+
+  <div
+    class="containerListItems"
+    *ngFor="let employee of employees; let i = index"
+    [style.background-color]="changeColorOne()"
+  >
+    <div class="one">{{ employee.name }}</div>
+    <div class="two">{{ employee.firstname }}</div>
+    <div class="three">{{ employee.lastname }}</div>
+    <div class="four">{{ employee.email }}</div>
+    <div class="five">{{ employee.birthdate }}</div>
+    <div class="six">{{ employee.basicsalary }}</div>
+    <div class="seven">{{ employee.status }}</div>
+    <div class="eight">{{ employee.group }}</div>
+    <div class="nine">{{ employee.description }}</div>
+    <div class="ten">
+      <button (click)="editEmployee(i)">E</button>
+      <button (click)="deleteEmployee(i)">X</button>
+    </div>
+    <!-- <div class="four"></div> -->
+  </div>
+</div>
+
+<div class="editEmployeeTitleContainer">
+  <div class="">Edit Employee</div>
+</div>
+
+<form>
+  <div class="form-group name">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="name"
+      name="name"
+      [(ngModel)]="model2.name"
+      placeholder="Name"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">First Name:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="firstname"
+      name="firstname"
+      [(ngModel)]="model2.firstname"
+      placeholder="First Name"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Last Name:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="lastname"
+      name="lastname"
+      [(ngModel)]="model2.lastname"
+      placeholder="LastName"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Email:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="email"
+      name="email"
+      [(ngModel)]="model2.email"
+      placeholder="Email"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Birth Date:</label>
+    <input
+      type="Date"
+      class="form-control input"
+      id="birthdate"
+      name="birthdate"
+      [(ngModel)]="model2.birthdate"
+      placeholder="Birth Date"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Basic Salary:</label>
+    <input
+      type="number"
+      class="form-control input"
+      id="basicsalary"
+      name="basicsalary"
+      [(ngModel)]="model2.basicsalary"
+      placeholder="Basic Salary"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Status:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="status"
+      name="status"
+      [(ngModel)]="model2.status"
+      placeholder="Status"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Group:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="group"
+      name="group"
+      [(ngModel)]="model2.group"
+      placeholder="Group"
+    />
+  </div>
+
+  <div class="form-group name">
+    <label for="name">Description:</label>
+    <input
+      type="text"
+      class="form-control input"
+      id="description"
+      name="description"
+      [(ngModel)]="model2.description"
+      placeholder="Description"
+    />
+  </div>
+  <button type="submit" (click)="updateEmployee()">Update</button>
+</form>
